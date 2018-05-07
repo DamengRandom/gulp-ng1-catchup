@@ -6,6 +6,7 @@ angular.module('GulpNgDemo')
     this.getData = function(){
       return returnData;
     }
+
     // this.getSumVal = function(a, b){  
     //   return parseInt(a) + parseInt(b);
     // } // this is synchronaous way to do calculation
@@ -14,4 +15,10 @@ angular.module('GulpNgDemo')
       var s = parseInt(a) + parseInt(b);
       return cb(s);
     }
+
+    this.collectData = function(formData){
+      console.log('form data object: ', formData);
+      return formData;
+    }
   }]);
+  

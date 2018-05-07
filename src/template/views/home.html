@@ -1,7 +1,20 @@
+<a href="/#/second/{{sum}}">Second Page</a>
 <h3>{{ title }}</h3>
 <p ng-bind="::getDataVal"></p>
-<p subtitle-message></p>
+<!-- <p subtitle-message></p> -->
+<div>
+  <subtitle-message></subtitle-message>
+</div>
 <input type="number" ng-model="::val1">
 <input type="number" ng-model="::val2">
 <button ng-click="doubleAndSum()">Get sum value</button>
+<button onClick="btnClick()">Sum by using $apply</button>
 <p ng-bind="sum"></p>
+<hr/>
+<form>
+  <input type="text" ng-model='username'>
+  <input type="number" ng-model='age'>
+  <input type="text" ng-model='hobby'>
+  <button type="button" ng-click="previewData()">Preview</button>
+</form>
+<form-data></form-data>

@@ -9,13 +9,13 @@ angular.module('GulpNgDemo')
       var CalServiceService = {};
       $log.log('provider now? ');
       CalServiceService.getSumVal = function(a, b, cb){
-        var s = parseInt(a) + parseInt(b) + parseInt(thirdParam);
-        // var s = parseInt(a) + parseInt(b);
+        // var s = parseInt(a) + parseInt(b) + parseInt(thirdParam);
+        var s = parseInt(a) + parseInt(b);
         return cb(s);
       }
       return CalServiceService;
     }]
   })
   .config(['CalServiceProvider', function(CalServiceProvider){
-    CalServiceProvider.config(10);
+    // CalServiceProvider.config(10);
   }]);
