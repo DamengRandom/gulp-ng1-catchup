@@ -6,4 +6,23 @@ angular.module('GulpNgDemo')
     }else {
       $scope.passedParamSum = $routeParams.sum;
     }
+
+    $scope.arrayDemo = [
+      {
+        name: 'dachou',
+        age: 29,
+        hobby: 'soccer'
+      },
+      {
+        name: 'chouchou',
+        age: 28,
+        hobby: 'study'
+      },
+      {
+        name: 'xiaochou',
+        age: 0,
+        hobby: 'sleep'
+      }
+    ];
+    
   }]);
