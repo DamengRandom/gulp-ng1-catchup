@@ -1,6 +1,6 @@
 angular.module('GulpNgDemo')
   // .controller('HomeCtrl', ['$scope', function($scope){
-  .controller('HomeCtrl', ['$scope', '$rootScope', 'CalService', 'CalFactory', function($scope, $rootScope, CalService, CalFactory){
+  .controller('HomeCtrl', ['$scope', '$q', '$rootScope', '$timeout', 'CalService', 'CalFactory', function($scope, $q, $rootScope, $timeout, CalService, CalFactory){
     $scope.title = 'Hi there, mate !!';
     // console.log("CalService: ", CalService.getData());
     // $scope.getDataVal = CalService.getData();
@@ -68,7 +68,85 @@ angular.module('GulpNgDemo')
       
       return $scope.collect;
     }
+
+    // basic promise understanding 
+    // function add(a, b , cb){
+    //   $timeout(() => {
+    //     cb(a+b);
+    //   }, 1000);
+    // }
+
+    // var startTime = Date.now();
+    
+    // add(6, 5, function(res){
+    //   add(res, 10, function(res){
+    //     $scope.triggerTime = Date.now() - startTime;
+    //     $scope.promiseResponse = res;
+    //   });
+    // });
+
+    // above way get code messy ...
+
+
+
+
+
+    // so we do promise way and see the result:
+    // var startTime = Date.now();
+    // function add(a, b){
+    //   return $timeout(() => {
+    //     return a + b;
+    //   }, 1000);
+    // }   
+
+    // add(10, 5).then((res) => {
+    //   return add(res, 5);
+    // }).then((res) => {
+    //   return add(res, 5);
+    // }).then((res) => {
+    //   $scope.promiseResponse = res;
+    //   $scope.triggerTime = Date.now() - startTime;
+    //   return $scope.promiseResponse;
+    // }, (err) => {
+    //   console.log('err: ', err);
+    // });
+
+    // we use $q function to do promise call
+    var startTime = Date.now();
+    $scope.firstVal;
+    $scope.secondVal;
+    
+    $scope.triggerAdd = function(){
+      alert('triggered ...');
+      function add(a, b){
+        var q = $q.defer();
+        setTimeout(() => {
+          if(a + b > 0){
+            q.resolve(a + b);
+          }else {
+            q.reject('Sry, value must be positive');
+          }        
+        }, 1000);
+        return q.promise;
+      }
+      add($scope.firstVal, $scope.secondVal).then((res) => {
+        return res;
+      }).then((res) => {
+        return res + 5; // straight away run calculation instead of calling a function // better performance
+      }).then((res) => {
+        return add(res, 10);
+      }).then((res) => {
+        $scope.promiseResponse = res;
+        return $scope.promiseResponse;
+      }).catch((err) => {
+        alert(err);
+      }).finally(() => {
+        $scope.triggerTime = Date.now() - startTime; // finally count time: finally means no matter what happens, the function will get run anyway
+      });
+    }
   }]);
+
+
 
 // try $apply() by writing a normal function
 var btnClick = function(){

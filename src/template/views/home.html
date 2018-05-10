@@ -18,3 +18,11 @@
   <button type="button" ng-click="previewData()">Preview</button>
 </form>
 <form-data></form-data>
+
+<!-- Peomise Understanding -->
+<p>Result</p>
+Add Result: <h3 ng-bind="promiseResponse"></h3>
+Add Time Cost: <p ng-bind="triggerTime"></p>
+<input type="number" ng-model="firstVal" />
+<input type="number" ng-model="secondVal" />
+<button ng-click="triggerAdd()">Start Add</button>
