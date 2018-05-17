@@ -1,10 +1,12 @@
  angular.module('GulpNgDemo')
   .directive('cardDemo', function(){
     return {
-      restrict: 'A',
+      restrict: 'E',
       scope: {
         isolate: '='
       },
+      transclude: true,
+      replace: true,
       templateUrl: 'directives/card-demo.html',
       link: function(scope, elem, attrs){
         scope.likeBtn = function(){

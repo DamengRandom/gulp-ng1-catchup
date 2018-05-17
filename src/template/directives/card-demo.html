@@ -1,7 +1,9 @@
-<p>Name: {{ isolate.name }}</p>
-<p>Age: {{ isolate.age }}</p>
-<p>Hobby: {{ isolate.hobby }}</p>
-<button ng-click="likeBtn()">Like</button>
-<hr/>
-
+<div>
+    <p>Name: {{ isolate.name }}</p>
+    <p>Age: {{ isolate.age }}</p>
+    <p>Hobby: {{ isolate.hobby }}</p>
+    <button ng-click="likeBtn()">Like</button>
+    <hr/>
+    <div ng-transclude></div>
+</div>
 <!-- type "!" then press tab, we will get basic html tab -->

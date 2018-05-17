@@ -3,7 +3,9 @@
 <p ng-bind="passedParamSum"></p>
 
 <div ng-repeat="ad in arrayDemo">
-  <div card-demo isolate="ad"></div>
+  <card-demo isolate="ad">
+    <p>ng transclude this content</p>
+  </card-demo>
 </div>
 
 <!-- binding a component -->

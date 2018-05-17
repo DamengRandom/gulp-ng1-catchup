@@ -3,7 +3,9 @@
 <p ng-bind="::getDataVal"></p>
 <!-- <p subtitle-message></p> -->
 <div>
-  <subtitle-message></subtitle-message>
+  <subtitle-message>
+    <p>ng transclude content show up</p>
+  </subtitle-message>
 </div>
 <input type="number" ng-model="::val1">
 <input type="number" ng-model="::val2">
@@ -17,7 +19,9 @@
   <input type="text" ng-model='hobby'>
   <button type="button" ng-click="previewData()">Preview</button>
 </form>
-<form-data></form-data>
+<form-data>
+  <p>ng transclude content show pls ...</p>
+</form-data>
 
 <!-- Peomise Understanding -->
 <p>Result</p>

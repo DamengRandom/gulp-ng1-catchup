@@ -1,4 +1,4 @@
-angular.module('GulpNgDemo')
+  angular.module('GulpNgDemo')
   .component('trialComponent', {
     bindings: {
       addName: '&'
