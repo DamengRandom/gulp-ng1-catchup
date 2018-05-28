@@ -10,7 +10,14 @@ angular.module('GulpNgDemo', ['ngRoute'])
         templateUrl: 'views/second.html',
         controller: 'SecondCtrl',
         caseInsensitiveMatch: true
-      }).otherwise({
+      }).when('/third', {
+        templateUrl: 'views/third.html',
+        controller: 'ThirdCtrl',
+      }).when('/third-child', {
+        templateUrl: 'views/third-child.html',
+        controller: 'ThirdChildCtrl'
+      })
+      .otherwise({
         template: '<p>404 - Oops, No Contents available ...</p><a href="/">Back to Home </a>'
         // redirectTo: function(){
         //   alert('404 - Oops, No Contents available ..');

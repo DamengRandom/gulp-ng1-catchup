@@ -1,0 +1,12 @@
+<a href="/">Home Page</a>
+<h3>{{ title }}</h3>
+<form>
+    <input type="number" ng-model="val1" />
+    <input type="number" ng-model="val2" />
+    <button type="button" ng-click="calResult()">Calulate</button>
+</form>
+<p ng-if="showResult">Calculation result: {{ valSum }}</p>
+<div ng-controller="ThirdChildCtrl">
+    <hr>
+   <h4>{{ title }}</h4>
+</div>
